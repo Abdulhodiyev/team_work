@@ -1,7 +1,6 @@
-from file_manager import read, append
+from function import add_user, view_users
 import os
 
-FILENAME = "users" 
 
 def show_menu():
     print("""
@@ -14,23 +13,6 @@ def show_menu():
         ╚═══════════════════════════════╝
         """)
 
-
-def add_user():
-    name = input("Ismingizni kiriting: ").strip()
-    age = input("Yoshingizni kiriting: ").strip()
-    append(FILENAME, [name, age])
-    print("Ma'lumot muvaffaqiyatli saqlandi ✅")
-
-def view_users():
-    users = read(FILENAME)
-    if not users:
-        print("Ma'lumot topilmadi")
-        return
-    print("Foydalanuvchilar ro'yxati:")
-    
-    for i, user in enumerate(users, 1):
-        print(f"{i}. Ism: {user[0]}, Yosh: {user[1]}")
-    print()
 
 def main():
 
@@ -46,6 +28,7 @@ def main():
             break
         else:
             print("Qayta urinib ko'ring ❌")
+
 
 if __name__ == "__main__":
     main()
